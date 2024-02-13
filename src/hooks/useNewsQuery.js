@@ -13,9 +13,6 @@ const useNewsQuery = () => {
     ? `http://localhost:8000/v2/search?q=${searchTerm}`
     : `http://localhost:8000/v2/top-headlines?category=${selectedCategory}`;
 
-  // console.log(url);
-  // console.log('newsData =>', newsData);
-
   useEffect(() => {
     let ignore = false;
     setIsLoading(true);

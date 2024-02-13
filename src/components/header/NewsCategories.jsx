@@ -3,21 +3,15 @@ import { CategoryContext } from '../../contexts/CategoryContext';
 import { SearchContext } from '../../contexts/SearchContext';
 import { categoryNames } from '../../data/category-name';
 
-const NewsCategories = () => {
-  const { setSelectedCategory } = useContext(CategoryContext);
+const NewsCategories = ({ setKeyword }) => {
+  const { selectedCategory, setSelectedCategory } = useContext(CategoryContext);
   const { searchTerm, setSearchTerm } = useContext(SearchContext);
 
   const handleSelectCategory = (e) => {
     e.preventDefault();
     if (searchTerm.length > 0) {
-      const confirm = window.confirm(
-        `Please first clear your searchText "${searchTerm}" to show "${e.target.innerText.toLowerCase()}" category all news.`
-      );
-      if (confirm) {
-        setSearchTerm('');
-        setSelectedCategory(e.target.innerText.toLowerCase());
-        return;
-      }
+      setSearchTerm('');
+      setKeyword('');
     }
     setSelectedCategory(e.target.innerText.toLowerCase());
   };
@@ -30,7 +24,11 @@ const NewsCategories = () => {
             <a
               onClick={(e) => handleSelectCategory(e)}
               href="#"
-              className="capitalize"
+              className={`capitalize ${
+                !searchTerm && selectedCategory === category
+                  ? 'text-[#00d991]'
+                  : null
+              }`}
             >
               {category}
             </a>

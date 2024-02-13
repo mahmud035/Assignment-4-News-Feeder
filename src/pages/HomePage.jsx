@@ -15,10 +15,11 @@ const HomePage = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <main className="py-10 transition-all lg:py-14 ">
+        <main className="py-10 transition-all lg:py-14">
           <NewsContainer />
         </main>
       )}
+
       <Footer />
     </>
   );

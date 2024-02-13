@@ -4,10 +4,9 @@ import useDebounce from '../../hooks/useDebounce';
 import CloseIcon from '../ui/CloseIcon';
 import SearchIcon from '../ui/SearchIcon';
 
-const Search = () => {
-  const { searchTerm, setSearchTerm } = useContext(SearchContext);
-  const [keyword, setKeyword] = useState('');
+const Search = ({ keyword, setKeyword }) => {
   const [showSearchInput, setShowSearchInput] = useState(false);
+  const { searchTerm, setSearchTerm } = useContext(SearchContext);
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -18,8 +17,13 @@ const Search = () => {
 
   const handleIconClick = () => {
     setShowSearchInput(!showSearchInput);
+    if (searchTerm.length > 0 || keyword.length > 0) {
+      setSearchTerm('');
+      setKeyword('');
+    }
   };
 
+  //* Use Debounce for Searching
   const handleSearch = useDebounce((term) => {
     setSearchTerm(term);
   }, 500);
@@ -31,29 +35,27 @@ const Search = () => {
   };
 
   return (
-    <div className="flex items-center h-10 gap-[1px] transition-all">
+    <div className="flex items-center h-10 gap-[1px]">
       {showSearchInput ? (
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="w-56 transition-all"
+          className="w-56 transition duration-1000 ease-in-out"
         >
           <input
             ref={inputRef}
             value={keyword}
             onChange={handleChange}
             type="search"
-            id="search-dropdown"
-            className="z-20 block w-full px-4 py-2 text-white transition-all bg-gray-800 focus:outline-none"
+            className={`z-20 block w-full px-4 py-2 text-white bg-[#00D991] rounded-full duration-[2000ms] placeholder:text-white transition ease-in-out focus:outline-none`}
             placeholder="Search News"
-            required
           />
         </form>
       ) : (
-        <div className="w-56 h-10 transition-all"></div>
+        <div className="w-56 h-10"></div>
       )}
       <button
         onClick={handleIconClick}
-        className="h-full p-1 text-white transition-all bg-gray-200 rounded-e-lg"
+        className="h-full p-1 text-white transition duration-[2000ms] ease-in-out rounded-e-lg"
       >
         {showSearchInput ? <CloseIcon /> : <SearchIcon />}
       </button>
