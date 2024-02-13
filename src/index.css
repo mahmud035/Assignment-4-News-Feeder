@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: TT Commons, 'sans-serif';
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Publico Headline Web, 'serif';
+    line-height: 110%;
+  }
+
+  a {
+    transition: color 0.3s;
+  }
+
+  a:hover {
+    color: #00d991;
+  }
+}
