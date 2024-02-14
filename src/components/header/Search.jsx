@@ -39,7 +39,7 @@ const Search = ({ keyword, setKeyword }) => {
       {showSearchInput ? (
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="w-56 transition duration-1000 ease-in-out"
+          className="w-full transition duration-1000 ease-in-out lg:w-56"
         >
           <input
             ref={inputRef}
@@ -51,7 +51,7 @@ const Search = ({ keyword, setKeyword }) => {
           />
         </form>
       ) : (
-        <div className="w-56 h-10"></div>
+        <div className="w-full h-10 lg:w-56"></div>
       )}
       <button
         onClick={handleIconClick}
