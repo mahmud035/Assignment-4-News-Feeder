@@ -87,7 +87,7 @@ const NewsContainer = () => {
   }
 
   return (
-    <div className="container grid grid-cols-12 gap-8 mx-auto">
+    <div className="container grid grid-cols-12 gap-8 mx-auto overflow-hidden">
       {/* Left side (Main News)  */}
       <div className="grid self-start grid-cols-12 col-span-12 gap-6 xl:col-span-8">
         {/* First news will be here  */}
