@@ -29,11 +29,7 @@ const NewsContainer = () => {
   }
 
   // imageNews data
-  if (
-    !searchTerm &&
-    filteredNewsData?.length > 1 &&
-    filteredNewsData?.length <= 7
-  ) {
+  if (!searchTerm && filteredNewsData?.length > 1) {
     imageNews = filteredNewsData?.slice(1, 2) || [];
   } else if (
     searchTerm?.length > 0 &&
@@ -75,11 +71,11 @@ const NewsContainer = () => {
     relatedNews = filteredNewsData?.slice(-5) || [];
   }
 
-  // console.log('filteredNewsData =>', filteredNewsData);
-  // console.log('topNews =>', topNews);
-  // console.log('imageNews =>', imageNews);
-  // console.log('restNews =>', restNews);
-  // console.log('relatedNews =>', relatedNews);
+  console.log('filteredNewsData =>', filteredNewsData);
+  console.log('topNews =>', topNews);
+  console.log('imageNews =>', imageNews);
+  console.log('restNews =>', restNews);
+  console.log('relatedNews =>', relatedNews);
 
   // if no data found
   if (searchTerm?.length > 0 && filteredNewsData?.length === 0) {

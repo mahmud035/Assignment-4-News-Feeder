@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import placeholderImage from '../../assets/placeholder-image.svg';
 import { SearchContext } from '../../contexts/SearchContext';
 import { getFormattedDate } from '../../utils/date-time-utils';
 
@@ -10,11 +9,7 @@ const RelatedNewsCard = ({ news, index }) => {
   return (
     <div className="col-span-12 mb-6 md:col-span-8">
       {index === 0 && (
-        <img
-          className="w-full lg:h-[270px]"
-          src={urlToImage ? urlToImage : placeholderImage}
-          alt="thumb"
-        />
+        <img className="w-full lg:h-[270px]" src={urlToImage} alt="thumb" />
       )}
       {/* info  */}
       <div
