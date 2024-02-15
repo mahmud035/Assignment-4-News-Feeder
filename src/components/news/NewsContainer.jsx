@@ -71,11 +71,11 @@ const NewsContainer = () => {
     relatedNews = filteredNewsData?.slice(-5) || [];
   }
 
-  console.log('filteredNewsData =>', filteredNewsData);
-  console.log('topNews =>', topNews);
-  console.log('imageNews =>', imageNews);
-  console.log('restNews =>', restNews);
-  console.log('relatedNews =>', relatedNews);
+  // console.log('filteredNewsData =>', filteredNewsData);
+  // console.log('topNews =>', topNews);
+  // console.log('imageNews =>', imageNews);
+  // console.log('restNews =>', restNews);
+  // console.log('relatedNews =>', relatedNews);
 
   // if no data found
   if (searchTerm?.length > 0 && filteredNewsData?.length === 0) {
