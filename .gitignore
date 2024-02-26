@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+hygiene-factors.txt
 
 # Editor directories and files
 .vscode/*
