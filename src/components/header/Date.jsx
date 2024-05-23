@@ -1,6 +1,8 @@
+import useTime from '../../hooks/useTime.js';
 import { getCurrentDate } from '../../utils/date-time-utils.js';
 
 const Date = () => {
+  const time = useTime();
   const currentDate = getCurrentDate();
 
   return (
@@ -55,7 +57,9 @@ const Date = () => {
           strokeLinejoin="round"
         />
       </svg>
-      <span>{currentDate}</span>
+      <span>
+        {currentDate}, {time.toLocaleTimeString()}
+      </span>
     </div>
   );
 };
